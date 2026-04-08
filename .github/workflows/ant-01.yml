@@ -20,7 +20,7 @@ jobs:
       uses: actions/setup-java@v4
       with:
         java-version: '25'
-        distribution: 'temurin'
+        distribution: 'OpenJDK'
     - name: Build with Ant
       run: ant -noinput -buildfile build.xml
 #    - name: Build with Ant
