@@ -208,7 +208,7 @@ Running this application a number of times will consistently give the same proba
 # Visualization
 
 The Strange API's allow creating and simulate quantum programs. A companion project, [StrangeFX](https://github.com/redfx-quantum/strangefx) , allows visualising programs, and create them with a simple drag and drop interface. The sample program above rendered via StrangeFX looks as follows:
-![StrangeFX rendering](https://github.com/redfx-quantum/strangefx/blob/master/docs/images/simpleview.png)
+[StrangeFX rendering](https://github.com/redfx-quantum/strangefx/blob/master/docs/images/simpleview.png)
 
 # More samples
 You can find more samples at https://github.com/johanvos/quantumjava
