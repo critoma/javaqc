@@ -1,3 +1,14 @@
+# javaqc aka Java API for Quantum Computing
+
+This project is a fork from Strange and StrangeFX companion project with following additional goals:
+1. Offers printing in various formats beside Java FX such as text terminal, web server, etc. for containerized solutions
+2. Embeddeds in all code and OpenJDK into thin Linux OS container for different containers engines such as Podman / Docker
+3. Extends with various Java interfaces, abstract classes and classes for connecting to different Quantum Computing platforms for their simulators or real quantu computers:
+   - European platforms: hardware and cloud access include Pasqal (neutral atoms) and QMware (hybrid cloud), ...
+   - UK, Canada, Australia platforms: D-Wave Systems (Ocean), Xanadu, Diraq, ...
+   - US platforms: IBM Qiskit, Google Cirq, MS Azure Q#, ...
+5. Creating didactical and comprehensive documentation and diagrams (e.g. PlantUML) for world wide and https://www.ism.ase.ro students 
+
 # strange
 [![Build](https://github.com/redfx-quantum/strange/actions/workflows/build.yml/badge.svg)](https://github.com/redfx-quantum/strange/actions/workflows/build.yml)
 [![Test Coverage](https://github.com/redfx-quantum/strange/blob/gh-pages/badges/jacoco.svg?raw=true)](https://redfx-quantum.github.io/strange/)
