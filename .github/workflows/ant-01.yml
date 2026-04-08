@@ -23,3 +23,5 @@ jobs:
         distribution: 'temurin'
     - name: Build with Ant
       run: ant -noinput -buildfile build.xml
+#    - name: Build with Ant
+#      run: cd . && ant compile && ant jar && ant run
