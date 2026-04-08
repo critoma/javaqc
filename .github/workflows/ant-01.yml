@@ -21,7 +21,7 @@ jobs:
       with:
         java-version: '25'
         distribution: 'OpenJDK'
-    - name: Build with Ant
-      run: ant -noinput -buildfile build.xml
 #    - name: Build with Ant
-#      run: cd . && ant compile && ant jar && ant run
+#      run: ant -noinput -buildfile build.xml
+    - name: Build with Ant
+      run: ant compile && ant jar && ant run
