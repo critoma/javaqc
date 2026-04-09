@@ -1,5 +1,5 @@
 #
-name: test docker image
+name: Test docker image deployment
 on:
   push:
     branches: ['release']
