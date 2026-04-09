@@ -5,9 +5,9 @@ name: Java QC CI
 
 on:
   push:
-    branches: [ "release" ]
+    branches: [ "release-test" ]
   pull_request:
-    branches: [ "release" ]
+    branches: [ "release-test" ]
   release:
     types:
       - published
