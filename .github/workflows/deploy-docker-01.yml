@@ -2,14 +2,14 @@
 name: Test docker image deployment
 on:
   push:
-    branches: ['release']
+    branches: ['main']
 
 jobs:
   hello_world_job:
     runs-on: ubuntu-latest
     name: A job to say hello
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Hello world build action
         uses: ./.github/actions/my-action # uses: actions/hello-world-docker-action@v2
         with:
@@ -17,4 +17,9 @@ jobs:
       # Use the output from the `hello` step
       - name: Get the output time
         run: echo "The time was ${{ steps.hello.outputs.time }}"
+      - name: Upload Build Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: workspace_artifacts
+          path: ${{ github.workspace }}
        
