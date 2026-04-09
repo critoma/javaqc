@@ -1,6 +1,6 @@
 # javaqc aka Java API for Quantum Computing
 
-This project is a fork from Strange and StrangeFX companion project with following additional goals:
+This project is a fork from Java Champion Johan Vos projects - Strange and StrangeFX companion project with following additional goals:
 1. Offers printing in various formats beside Java FX (StrangeFX) such as text terminal, web server, etc. for containerized solutions: Podman/Docker
 2. Create releases with GitHub Actions workflows and embeddeding in all code and OpenJDK into thin Linux OS container for different containers engines such as Podman / Docker
 3. Connecting to different Quantum Computing Cloud platforms for their simulators or real quantum computers by extending existing Java classes and interfaces:
@@ -8,7 +8,7 @@ This project is a fork from Strange and StrangeFX companion project with followi
    - UK, Canada, Australia platforms: D-Wave Systems (Ocean), Xanadu, Diraq, ...
    - US platforms: IBM Qiskit, Google Cirq, MS Azure Q#, ...
 4. Creating classes for Quantum Deep Learning (QDL) and Quantum Neural Networking (QNN) with or without Agents for Artificial Intelligence (AI) processing
-5. Transpile and optimize to run QC simulators on CPU and GPU witb OpenCL - Java Babylon
+5. Transpile and optimize to run QC simulators on CPU and GPU with OpenCL - Java Babylon
 6. Creating didactical and comprehensive documentation and diagrams (e.g. Mermaid, PlantUML) for world wide and https://www.ism.ase.ro students
 
 # strange
