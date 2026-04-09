@@ -7,8 +7,9 @@ This project is a fork from Strange and StrangeFX companion project with followi
    - European platforms: hardware and cloud access include Pasqal (neutral atoms) and QMware (hybrid cloud), ...
    - UK, Canada, Australia platforms: D-Wave Systems (Ocean), Xanadu, Diraq, ...
    - US platforms: IBM Qiskit, Google Cirq, MS Azure Q#, ...
-4. Creating classes for Quantum Deep Learning (QDL) and Quantum Neural Networking (QNN) for Artificial Intelligence (AI) processing 
-5. Creating didactical and comprehensive documentation and diagrams (e.g. PlantUML) for world wide and https://www.ism.ase.ro students
+4. Creating classes for Quantum Deep Learning (QDL) and Quantum Neural Networking (QNN) with or without Agents for Artificial Intelligence (AI) processing
+5. Transpile and optimize to run QC simulators on CPU and GPU witb OpenCL - Java Babylon
+6. Creating didactical and comprehensive documentation and diagrams (e.g. Mermaid, PlantUML) for world wide and https://www.ism.ase.ro students
 
 # strange
 [![Build](https://github.com/redfx-quantum/strange/actions/workflows/build.yml/badge.svg)](https://github.com/redfx-quantum/strange/actions/workflows/build.yml)
