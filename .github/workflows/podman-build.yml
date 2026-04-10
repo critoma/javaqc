@@ -12,6 +12,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment: Tes001   # <-- attaches the environment to this job
 
     steps:
       # Check out the repository code
