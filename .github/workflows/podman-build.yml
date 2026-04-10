@@ -48,12 +48,18 @@ jobs:
           # /entrypoint.sh
 
       # Docker.io login
-      - name: Login to Docker Hub
+      - name: Login to Docker Hub 
         run: |
           echo "${{ secrets.REGISTRY_PASS }}" | podman login docker.io \
           -u "${{ secrets.REGISTRY_USER }}" --password-stdin
+
+      # Tag and publish in Docker.io
+      # - name: Login to Docker Hub
+      #  run: |
+      #    echo "${{ secrets.REGISTRY_PASS }}" | podman login docker.io \
+      #    -u "${{ secrets.REGISTRY_USER }}" --password-stdin
           
-      # delete the used podman container
+      # Delete the used podman container and logout
       - name: Delete podman container
         run: |
-          podman rm javaqc:${{ github.sha }} 
+          podman rm javaqc:${{ github.sha }} && podman logout
