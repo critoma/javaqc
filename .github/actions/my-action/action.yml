@@ -11,6 +11,7 @@ outputs:
     description: 'The time we greeted you'
 runs:
   using: 'docker'
+  # ?? using: 'podman'
   image: 'Dockerfile'
   args:
     - ${{ inputs.who-to-greet }}
