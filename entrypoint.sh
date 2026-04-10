@@ -1,3 +1,3 @@
 #!/bin/sh -l
 
-cd /javaqc/ant-build && ant run
+cd /ant-build && ant run
