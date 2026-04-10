@@ -60,8 +60,7 @@ jobs:
       #    echo "${{ secrets.REGISTRY_PASS }}" | podman login docker.io \
       #    -u "${{ secrets.REGISTRY_USER }}" --password-stdin
           
-      # Delete the used podman container and logout
+      # Delete the used podman container, image and logout
       - name: Delete podman container
         run: |
-          podman ps -a && podman logout \
-          podman rm javaqc_strange && podman rmi javaqc:${{ github.sha }}
+          podman ps -a && podman rm javaqc_strange && podman rmi javaqc:${{ github.sha }} && podman logout
