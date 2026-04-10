@@ -20,7 +20,7 @@ jobs:
 
       # Verify Podman is available on the runner
       - name: Check Podman and Linux version version
-        run: whoami && lscpu && pwd && ls -latr && lsb_release -a && podman --version && podman images && podman ps && podman ps -a
+        run: whoami && lscpu && pwd && ls -latr && lsb_release -a && podman --version && podman images && podman ps && javac -version && ant -version
 
       # Build with Apache ANT inside the container
       - name: Build javaqc
