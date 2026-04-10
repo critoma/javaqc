@@ -55,10 +55,11 @@ jobs:
           -u "${{ secrets.REGISTRY_USER }}" --password-stdin
 
       # Tag and publish in Docker.io
-      # - name: Login to Docker Hub
-      #  run: |
-      #    echo "${{ secrets.REGISTRY_PASS }}" | podman login docker.io \
-      #    -u "${{ secrets.REGISTRY_USER }}" --password-stdin
+      - name: Tag and Push to Docker Hub
+        run: |
+          IMAGE="docker.io/${{ secrets.REGISTRY_USER }}/javaqc:${{ github.sha }}" 
+          podman tag javaqc:1.0 "$IMAGE"
+          podman push javaqc:1.0
           
       # Delete the used podman container, image and logout
       - name: Delete podman container
