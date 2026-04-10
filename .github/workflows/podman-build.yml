@@ -43,6 +43,17 @@ jobs:
       # Run demo inside the Podman built container with ant
       - name: Run tests inside the Podman built container
         run: |
-          podman run --rm javaqc:${{ github.sha }} /entrypoint.sh
+          podman run javaqc:${{ github.sha }} /entrypoint.sh
           # sh -c 'whoami && cd /jar && pwd && ls -latr . && java -jar javaqc.jar' 
           # /entrypoint.sh
+
+      # Docker.io login
+      - name: Login to Docker Hub
+        run: |
+          echo "${{ secrets.REGISTRY_PASS }}" | podman login docker.io \
+          -u "${{ secrets.REGISTRY_USER }}" --password-stdin
+          
+      # delete the used podman container
+      - name: Delete podman container
+        run: |
+          podman rm javaqc:${{ github.sha }} 
