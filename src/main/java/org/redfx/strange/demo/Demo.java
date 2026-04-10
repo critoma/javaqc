@@ -56,8 +56,9 @@ public class Demo {
      * @throws java.lang.InterruptedException if any.
      */
     public static void main(String[] args) throws ExecutionException, InterruptedException {
-        System.out.println("Hello, Demo1");
-        demo1();
+        System.out.println("Hello, Demo1 - zero test");
+        zerotest();
+//        demo1();
 //        int rows = 256;
 //        int cols = 16;
 //        for (int k = 0; k < 100; k++) {
