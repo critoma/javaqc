@@ -5,14 +5,14 @@ name: Podman Build and Test
 
 on:
   push:
-    branches: [release]
+    branches: [main]
   pull_request:
-    branches: [release]
+    branches: [main]
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    environment: Tes001   # <-- attaches the environment to this job
+    environment: ACS-Cybersecurity-critoma-ism.ase.ro   # <-- attaches the environment to this job
 
     steps:
       # Check out the repository code
