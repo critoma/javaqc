@@ -10,4 +10,4 @@ RUN apt-get update \
  && rm -rf /var/lib/apt/lists/*
 
 # Code file to execute when the container starts up
-# ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["/entrypoint.sh"]
