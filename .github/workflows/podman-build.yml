@@ -63,6 +63,5 @@ jobs:
       # Delete the used podman container and logout
       - name: Delete podman container
         run: |
-          podman ps \
-          podman ps -a \
-          podman rm javaqc:${{ github.sha }} && podman logout
+          podman ps && podman ps -a && podman logout \
+          podman rm javaqc:${{ github.sha }}
