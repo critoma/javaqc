@@ -43,4 +43,4 @@ jobs:
       # Run demo inside the Podman built container with ant
       - name: Run tests inside the Podman built container
         run: |
-          pwd && ls -latr && podman run --rm javaqc:${{ github.sha }} /javaqc/entrypoint.sh
+          podman run --rm javaqc:${{ github.sha }} 'pwd && ls -latr && /entrypoint.sh'
