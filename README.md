@@ -1,7 +1,7 @@
 # javaqc aka Java API for Quantum Computing
 
 This project is a fork from Java Champion Johan Vos projects - Strange and StrangeFX companion project with following additional goals:
-1. Offers printing in various formats beside Java FX (StrangeFX) such as text terminal, web server, etc. for containerized solutions: Podman/Docker
+1. Offers printing in various formats beside Java FX (StrangeFX) such as text terminal, web server, etc. for containerized solutions: Podman / Docker
 2. Create releases with GitHub Actions workflows and embeddeding in all code and OpenJDK into thin Linux OS container for different containers engines such as Podman / Docker
 3. Connecting to different Quantum Computing Cloud platforms for their simulators or real quantum computers by extending existing Java classes and interfaces:
    - European platforms: hardware and cloud access include Pasqal (neutral atoms) and QMware (hybrid cloud), ...
