@@ -26,13 +26,13 @@ jobs:
           distribution: 'temurin'
           
       # Verify Podman is available on the runner
-      - name: Check Podman and Linux version version and gcc/g++ 
+      - name: Check Podman and Linux version version and gcc g++ 
         run:  |
-          whoami && lscpu && pwd && ls -latr && lsb_release -a && podman --version && podman images && podman ps && javac -version \ 
-              && ant -version && gcc --version && g++ --version && make --version
+          whoami && lscpu && pwd && ls -latr && lsb_release -a && podman --version && podman images && podman ps && javac -version \
+          && ant -version && gcc --version && g++ --version && make --version
 
       # Build with Apache ANT inside the container
-      - name: Build javaqc with OpenJDK 25 LTS from Eclipse/IBM Temurin
+      - name: Build javaqc with OpenJDK 25 LTS from Eclipse IBM Temurin
         run: ant clean && ant compile && ant jar && ant run
 
       # Build the container image using Podman
