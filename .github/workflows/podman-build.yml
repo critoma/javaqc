@@ -57,7 +57,9 @@ jobs:
       # Tag and publish in Docker.io
       - name: Tag and Push to Docker Hub
         run: |
-          IMAGE="docker.io/${{ secrets.REGISTRY_USER }}/javaqc:${{ github.sha }}" 
+          # IMAGE="docker.io/${{ secrets.REGISTRY_USER }}/javaqc:${{ github.sha }}" 
+          podman ps -a
+          IMAGE="localhost/javaqc:${{ github.sha }}" 
           podman tag javaqc:1.0 "$IMAGE"
           podman push javaqc:1.0
           
