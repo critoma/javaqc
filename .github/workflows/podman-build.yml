@@ -24,7 +24,7 @@ jobs:
 
       # Build with Apache ANT inside the container
       - name: Build javaqc
-        run: ant clean && ant build && ant run
+        run: ant clean && ant compile && ant jar && ant run
 
       # Build the container image using Podman
       - name: Build image
