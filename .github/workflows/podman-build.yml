@@ -31,14 +31,14 @@ jobs:
           whoami && lscpu && pwd && ls -latr && lsb_release -a && podman --version && podman images && podman ps && javac -version \
           && ant -version && gcc --version && g++ --version && make --version
 
-      # Build with Apache ANT inside the container
-      - name: Build javaqc with OpenJDK 25 LTS from Eclipse IBM Temurin
+      # Build with Apache ANT and OpenJDK 25 LTS from Eclipse IBM Temurin inside the container
+      - name: Build javaqc with ANT and Java 25
         run: ant clean && ant compile && ant jar && ant run
 
       # Build the container image using Podman
-      # - name: Build image
+      - name: Build image
       #  run: podman build -t ./.github/actions/my-action/Dockerfile
-        # run: podman build -t myapp:${{ github.sha }} .
+        run: podman build -t javaqc:${{ github.sha }} .
 
       # Build with Apache ANT inside the container
       # - name: Run tests
