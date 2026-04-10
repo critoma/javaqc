@@ -27,7 +27,8 @@ jobs:
           
       # Verify Podman is available on the runner
       - name: Check Podman and Linux version version and gcc/g++ 
-        run: whoami && lscpu && pwd && ls -latr && lsb_release -a && podman --version && podman images && podman ps && javac -version && ant -version && gcc --version && g++ --version && make -v && cmake -v
+        run: whoami && lscpu && pwd && ls -latr && lsb_release -a && podman --version && podman images && podman ps && javac -version \ 
+              && ant -version && gcc --version && g++ --version && make --version && cmake --version
 
       # Build with Apache ANT inside the container
       - name: Build javaqc with OpenJDK 25 LTS from Eclipse/IBM Temurin
