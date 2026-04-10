@@ -24,7 +24,8 @@ jobs:
 
       # Build the container image using Podman
       - name: Build image
-        run: podman build -t myapp:${{ github.sha }} .
+        run: podman build -t ./actions/my-action/
+        # run: podman build -t myapp:${{ github.sha }} .
 
       # Run tests inside the container
       - name: Run tests
