@@ -7,4 +7,4 @@ COPY build.xml ant-build/ entrypoint.sh /
 RUN chmod +x /entrypoint.sh
 
 # Code file to execute when the container starts up
-ENTRYPOINT ["/entrypoint.sh"]
+# ENTRYPOINT ["/entrypoint.sh"]
