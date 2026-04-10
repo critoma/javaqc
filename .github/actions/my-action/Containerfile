@@ -1,5 +1,5 @@
 # Container image that runs your code
-FROM ubuntu-noble
+FROM ubuntu
 
 # Copies your code file from your repository to the filesystem path `/` of the container
 COPY ../../../build.xml ../../../ant-build/ ./entrypoint.sh /javaqc/
