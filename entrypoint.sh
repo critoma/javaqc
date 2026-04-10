@@ -1,3 +1,3 @@
 #!/bin/sh -l
 
-cd /ant-build && ant run
+whoami && cd /jar && pwd && ls -latr . && java -jar javaqc.jar
