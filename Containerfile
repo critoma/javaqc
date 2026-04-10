@@ -2,9 +2,9 @@
 FROM ubuntu
 
 # Copies your code file from your repository to the filesystem path `/` of the container
-COPY build.xml ant-build/ entrypoint.sh /javaqc/
+COPY build.xml ant-build/ entrypoint.sh /
 
-RUN chmod +x /javaqc/entrypoint.sh
+RUN chmod +x /entrypoint.sh
 
 # Code file to execute when the container starts up
-ENTRYPOINT ["/javaqc/entrypoint.sh"]
+ENTRYPOINT ["/entrypoint.sh"]
