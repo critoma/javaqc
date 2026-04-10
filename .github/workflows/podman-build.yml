@@ -19,15 +19,19 @@ jobs:
         uses: actions/checkout@v4
 
       # Verify Podman is available on the runner
-      - name: Check Podman version
-        run: podman --version
+      - name: Check Podman and Linux version version
+        run: whoami && lscpu && pwd && ls -latr && lsb_release -a && podman --version && podman images && podman ps && podman ps -a
+
+      # Build with Apache ANT inside the container
+      - name: Build javaqc
+        run: ant clean && ant build && ant run
 
       # Build the container image using Podman
       - name: Build image
-        run: pwd && ls -latr . && ls -latr /opt # podman build -t ./actions/my-action/Dockerfile
+        run: podman build -t ./.github/actions/my-action/Dockerfile
         # run: podman build -t myapp:${{ github.sha }} .
 
-      # Run tests inside the container
-      - name: Run tests
-        run: |
-          podman run --rm myapp:${{ github.sha }} npm test
+      # Build with Apache ANT inside the container
+      # - name: Run tests
+      #  run: |
+      #    podman run --rm myapp:${{ github.sha }} npm test
