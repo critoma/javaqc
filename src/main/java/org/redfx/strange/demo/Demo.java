@@ -56,7 +56,8 @@ public class Demo {
      * @throws java.lang.InterruptedException if any.
      */
     public static void main(String[] args) throws ExecutionException, InterruptedException {
-        System.out.println("Hello, Demo3");
+        System.out.println("Hello, Demo1");
+        demo1();
 //        int rows = 256;
 //        int cols = 16;
 //        for (int k = 0; k < 100; k++) {
@@ -67,14 +68,14 @@ public class Demo {
 //                }
 //            }
 //        }
-        expmul2p3mod7gen();
+        //expmul2p3mod7gen(); // demo3
     //    expmul7p4mod15gen();
     //    Complex.calcGrid();
      //   mulTest();
 //       addTest();
 //         expmul3p4mod7();
       //  multiplyMod5x3andswapandclean();
-        System.err.println("That was the demo");
+      //  System.err.println("That was the demo");
     }
   
     private static void mulTest() {
