@@ -44,7 +44,7 @@ jobs:
       # Run demo inside the Podman built container with ant
       - name: Run tests inside the Podman built container
         run: |
-          podman run javaqc:${{ github.sha }} --name javaqc:1.0 /entrypoint.sh
+          podman run --name javaqc:1.0 javaqc:${{ github.sha }} /entrypoint.sh
           # sh -c 'whoami && cd /jar && pwd && ls -latr . && java -jar javaqc.jar' 
           # /entrypoint.sh
 
@@ -63,5 +63,5 @@ jobs:
       # Delete the used podman container and logout
       - name: Delete podman container
         run: |
-          podman ps && podman ps -a && podman logout \
+          podman ps -a && podman logout \
           podman rm javaqc:1.0 && podman rmi javaqc:${{ github.sha }}
