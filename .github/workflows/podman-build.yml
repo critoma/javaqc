@@ -36,11 +36,11 @@ jobs:
         run: ant clean && ant compile && ant jar && ant run
 
       # Build the container image using Podman
-      - name: Build image
-      #  run: podman build -t ./.github/actions/my-action/Dockerfile
-        run: podman build -t javaqc:${{ github.sha }} .
+      - name: Build Podman image
+        run: podman build -t javaqc:${{ github.sha }} ./.github/actions/my-action/Containerfile
+        #  run: podman build -t myapp:${{ github.sha }} .
 
-      # Build with Apache ANT inside the container
-      # - name: Run tests
-      #  run: |
-      #    podman run --rm myapp:${{ github.sha }} npm test
+      # Run demo inside the Podman built container with ant
+      - name: Run tests inside the Podman built container
+        run: |
+          podman run --rm javaqc:${{ github.sha }} ant run
