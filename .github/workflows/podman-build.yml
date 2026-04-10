@@ -37,10 +37,10 @@ jobs:
 
       # Build the container image using Podman
       - name: Build Podman image
-        run: cd ./.github/actions/my-action && ls -latr && podman build -t javaqc:${{ github.sha }} -f ./Containerfile .
+        run: pwd && cd ./.github/actions/my-action && ls -latr && podman build -t javaqc:${{ github.sha }} -f ./Containerfile .
         #  run: podman build -t myapp:${{ github.sha }} .
 
       # Run demo inside the Podman built container with ant
       - name: Run tests inside the Podman built container
         run: |
-          pwd && ls -latr && podman run --rm javaqc:${{ github.sha }} ant run
+          pwd && cd ./.github/actions/my-action && ls -latr && podman run --rm javaqc:${{ github.sha }} ant run
