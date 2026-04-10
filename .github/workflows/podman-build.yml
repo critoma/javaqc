@@ -60,8 +60,9 @@ jobs:
           # IMAGE="docker.io/${{ secrets.REGISTRY_USER }}/javaqc:${{ github.sha }}" 
           podman ps -a
           IMAGE="localhost/javaqc:${{ github.sha }}" 
-          podman tag javaqc:1.0 "$IMAGE"
-          podman push javaqc:1.0
+          IMAGE2PUB="docker.io/${{ secrets.REGISTRY_USER }}/javaqc:1.0"
+          podman tag "$IMAGE" "$IMAGE2PUB"
+          podman push "$IMAGE2PUB"
           
       # Delete the used podman container, image and logout
       - name: Delete podman container
