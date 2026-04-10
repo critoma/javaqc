@@ -18,17 +18,24 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      # Setup JDK 25 LTS
+      - name: Set up JDK 25
+        uses: actions/setup-java@v4
+        with:
+          java-version: '25'
+          distribution: 'temurin'
+          
       # Verify Podman is available on the runner
-      - name: Check Podman and Linux version version
-        run: whoami && lscpu && pwd && ls -latr && lsb_release -a && podman --version && podman images && podman ps && javac -version && ant -version
+      - name: Check Podman and Linux version version and gcc/g++ 
+        run: whoami && lscpu && pwd && ls -latr && lsb_release -a && podman --version && podman images && podman ps && javac -version && ant -version && gcc --version && g++ --version && make -v && cmake -v
 
       # Build with Apache ANT inside the container
-      - name: Build javaqc
+      - name: Build javaqc with OpenJDK 25 LTS from Eclipse/IBM Temurin
         run: ant clean && ant compile && ant jar && ant run
 
       # Build the container image using Podman
-      - name: Build image
-        run: podman build -t ./.github/actions/my-action/Dockerfile
+      # - name: Build image
+      #  run: podman build -t ./.github/actions/my-action/Dockerfile
         # run: podman build -t myapp:${{ github.sha }} .
 
       # Build with Apache ANT inside the container
