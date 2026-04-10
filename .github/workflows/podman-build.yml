@@ -1,0 +1,32 @@
+# .github/workflows/podman-build.yml
+
+# Basic workflow that builds and tests a container image using Podman
+name: Podman Build and Test
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Check out the repository code
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Verify Podman is available on the runner
+      - name: Check Podman version
+        run: podman --version
+
+      # Build the container image using Podman
+      - name: Build image
+        run: podman build -t myapp:${{ github.sha }} .
+
+      # Run tests inside the container
+      - name: Run tests
+        run: |
+          podman run --rm myapp:${{ github.sha }} npm test
