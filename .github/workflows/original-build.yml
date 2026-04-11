@@ -72,3 +72,8 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: jacoco
+          
+      - name: Publish javaqc jar
+        uses: actions/upload-artifact@v6
+        with:
+          name: javaqc
