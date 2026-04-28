@@ -71,9 +71,7 @@ public class Demo {
 
         new TextRenderer().render(p, result);
 
-        try (WebRenderer web = new WebRenderer()) {
-            web.render(p, result);
-        }
+        new WebRenderer().render(p, result);
     }
 
     private static void mulTest() {

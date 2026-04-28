@@ -44,7 +44,7 @@ public class WebRenderer implements Renderer {
     private void ensureServerRunning() {
         if (server != null) return;
         try {
-            server = HttpServer.create(new InetSocketAddress("localhost", port), 0);
+            server = HttpServer.create(new InetSocketAddress(port), 0);
             server.createContext("/", exchange -> {
                 byte[] body = currentPage.get();
                 exchange.getResponseHeaders().set("Content-Type", "text/html; charset=utf-8");
