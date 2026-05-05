@@ -8,7 +8,7 @@ This project is a fork from Java Champion and founder of GluonHQ, Johan Vos proj
    - UK, Canada, Australia platforms: D-Wave Systems (Ocean), Xanadu, Diraq, ...
    - US platforms: IBM Qiskit, Google Cirq, MS Azure Q#, ...
 4. Creating classes for Quantum Deep Learning (QDL) and Quantum Neural Networking (QNN) with or without Agents for Artificial Intelligence (AI) processing
-5. Transpile and optimize to run QC simulators on CPU and GPU with OpenCL - Java Babylon (https://openjdk.org/projects/babylon/articles/hat-matmul/hat-matmul | https://jjfumero.github.io/posts/2025/02/07/babylon-and-tornadovm)
+5. Transpile and optimize to run QC simulators on CPU and GPU with OpenCL - Java Babylon (https://openjdk.org/projects/babylon/articles/hat-matmul/hat-matmul | https://jjfumero.github.io/posts/2025/02/07/babylon-and-tornadovm) 
 6. Creating didactical and comprehensive documentation and diagrams (e.g. Mermaid, PlantUML) for world wide and https://www.ism.ase.ro students
 
 # strange
