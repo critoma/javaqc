@@ -10,8 +10,11 @@ import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.atomic.AtomicReference;
+import java.util.logging.Logger;
 
 public class WebRenderer implements Renderer {
+
+    private static final Logger LOG = Logger.getLogger(WebRenderer.class.getName());
 
     private final int port;
     private HttpServer server;
@@ -30,7 +33,7 @@ public class WebRenderer implements Renderer {
         String html = buildHtml(program, result);
         currentPage.set(html.getBytes(StandardCharsets.UTF_8));
         ensureServerRunning();
-        System.out.println("Circuit visualization: http://localhost:" + port);
+        LOG.info(() -> "Circuit visualization: http://localhost:" + port);
     }
 
     @Override
@@ -107,7 +110,23 @@ public class WebRenderer implements Renderer {
     }
 
     private static String escapeJs(String s) {
-        return s.replace("\\", "\\\\").replace("\"", "\\\"");
+        StringBuilder sb = new StringBuilder(s.length() + 8);
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            switch (c) {
+                case '\\' -> sb.append("\\\\");
+                case '"'  -> sb.append("\\\"");
+                case '\n' -> sb.append("\\n");
+                case '\r' -> sb.append("\\r");
+                case 0x2028 -> sb.append("\\u2028");
+                case 0x2029 -> sb.append("\\u2029");
+                case '<' -> sb.append("\\u003c");
+                case '>' -> sb.append("\\u003e");
+                case '&' -> sb.append("\\u0026");
+                default -> sb.append(c);
+            }
+        }
+        return sb.toString();
     }
 
     private static final String HTML_TEMPLATE = """

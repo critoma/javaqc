@@ -11,7 +11,7 @@ import java.io.InputStream;
 import java.net.ConnectException;
 import java.net.HttpURLConnection;
 import java.net.Socket;
-import java.net.URL;
+import java.net.URI;
 import java.nio.charset.StandardCharsets;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -39,7 +39,7 @@ public class WebRendererTest {
         try (WebRenderer web = new WebRenderer(TEST_PORT + 2)) {
             web.render(bellState());
             HttpURLConnection conn = (HttpURLConnection)
-                new URL("http://localhost:" + (TEST_PORT + 2) + "/").openConnection();
+                URI.create("http://localhost:" + (TEST_PORT + 2) + "/").toURL().openConnection();
             conn.setConnectTimeout(2000);
             conn.setReadTimeout(2000);
             assertEquals(200, conn.getResponseCode());
@@ -57,7 +57,7 @@ public class WebRendererTest {
             Result r = new SimpleQuantumExecutionEnvironment().runProgram(p);
             web.render(p, r);
             HttpURLConnection conn = (HttpURLConnection)
-                new URL("http://localhost:" + (TEST_PORT + 3) + "/").openConnection();
+                URI.create("http://localhost:" + (TEST_PORT + 3) + "/").toURL().openConnection();
             conn.setConnectTimeout(2000);
             conn.setReadTimeout(2000);
             assertEquals(200, conn.getResponseCode());
