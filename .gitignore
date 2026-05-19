@@ -2,6 +2,7 @@
 # The goal is that a full build & test, followed by "git status" would show
 # no untracked files
 
+.devcontainer
 .idea
 *.orig
 *.bak
@@ -18,3 +19,4 @@ webrev.zip
 gradle.properties
 apps/samples/Ensemble8/lib/
 target/
+sessions/
