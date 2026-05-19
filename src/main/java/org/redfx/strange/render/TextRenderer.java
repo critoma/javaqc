@@ -53,25 +53,28 @@ public class TextRenderer implements Renderer {
             if (step.getType() == Step.Type.PSEUDO) continue;
 
             for (Gate gate : step.getGates()) {
-                List<Integer> affected = gate.getAffectedQubitIndexes();
                 int main = gate.getMainQubitIndex();
+                int minQ, maxQ;
 
                 if (gate instanceof ControlledGate cg) {
                     for (int ctrl : cg.getControlIndexes()) grid[ctrl][s] = "●";
                     grid[cg.getRootGateIndex()][s] = cg.getRootGate().getCaption();
-                } else if (gate instanceof ControlledBlockGate cbg) {
-                    grid[cbg.getControlQubit()][s] = "●";
-                    grid[main][s] = gate.getCaption();
+                    minQ = cg.getControlIndexes().stream().mapToInt(Integer::intValue).min().getAsInt();
+                    maxQ = cg.getControlIndexes().stream().mapToInt(Integer::intValue).max().getAsInt();
+                    minQ = Math.min(minQ, cg.getRootGateIndex());
+                    maxQ = Math.max(maxQ, cg.getRootGateIndex());
                 } else {
+                    List<Integer> affected = gate.getAffectedQubitIndexes();
+                    if (gate instanceof ControlledBlockGate cbg) {
+                        grid[cbg.getControlQubit()][s] = "●";
+                    }
                     grid[main][s] = gate.getCaption();
+                    minQ = affected.stream().mapToInt(Integer::intValue).min().orElse(main);
+                    maxQ = affected.stream().mapToInt(Integer::intValue).max().orElse(main);
                 }
 
-                if (affected.size() > 1) {
-                    int minQ = affected.stream().mapToInt(Integer::intValue).min().getAsInt();
-                    int maxQ = affected.stream().mapToInt(Integer::intValue).max().getAsInt();
-                    for (int q = minQ; q <= maxQ; q++) {
-                        if ("─".equals(grid[q][s])) grid[q][s] = "│";
-                    }
+                for (int q = minQ; q <= maxQ; q++) {
+                    if ("─".equals(grid[q][s])) grid[q][s] = "│";
                 }
             }
         }
